@@ -19,9 +19,10 @@ def add_item(request):
             return redirect('get_todo_list')
     form = ItemForm()
     context = {
-        'form' : form
-    }    
+        'form': form
+    }
     return render(request, 'todo/add_item.html', context)
+
 
 def edit_item(request, item_id):
     item = get_object_or_404(Item, id=item_id)
@@ -32,7 +33,7 @@ def edit_item(request, item_id):
             return redirect('get_todo_list')
     form = ItemForm(instance=item)
     context = {
-        'form' : form
+        'form': form
     }
     return render(request, 'todo/edit_item.html', context)
 
